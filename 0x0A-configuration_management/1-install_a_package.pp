@@ -1,7 +1,7 @@
 #!/usr/bin/pup
 # specify a version that is compatible with Flask
 package {'werkzeug':
-  ensure => '2.1.1',
+  ensure   => '2.1.1',
   provider => 'pip3',
 }
 
@@ -9,5 +9,5 @@ package {'werkzeug':
 package {'flask':
   ensure   => '2.1.0',
   provider => 'pip3',
-  require => Package['werkzeug'],
+  require  => Package['werkzeug'],
 }
