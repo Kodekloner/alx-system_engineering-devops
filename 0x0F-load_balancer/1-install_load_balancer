@@ -17,8 +17,8 @@ frontend  Kodekloner_frontend
         default_backend Kodekloner_backend
 backend Kodekloner_backend
         balance roundrobin
-        server 437249-web-01 54.226.9.101:80 check
-        server 437249-web-02 34.232.53.161:80 check
+        server 437249-web-01 18.204.14.243:80 check
+        server 437249-web-02 100.26.218.137:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
