@@ -4,10 +4,10 @@ defaults
   timeout connect 10s
   timeout server 15s
   timeout http-request 10s
-frontend kodekloner-frontend
-    bind *:80 ssl crt /etc/letsencrypt/live/www.kodekloner.tech/www.kodekloner.tech.pem
-    default_backend kodekloner-backend
-backend kodekloner-backend
+frontend Kodekloner_frontend
+    bind *:443 ssl crt /etc/letsencrypt/live/kodekloner.tech/www.kodekloner.tech.pem
+    default_backend Kodekloner_backend
+backend Kodekloner_backend
     balance roundrobin
-    server 437249-web-01 54.226.9.101:80 check
-    server 437249-web-02 34.232.53.161:80 check
+    server 437249-web-01 18.204.14.243:80 check
+    server 437249-web-02 18.234.169.31:80 check
