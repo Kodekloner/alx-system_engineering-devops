@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
-# Gracefully reloads Gunicorn.
+# Find the Gunicorn master process ID (PID)
+GUNICORN_PID=$(pgrep -f 'gunicorn: master')
 
-pgrep gunicorn | xargs kill -HUP
+# Check if the PID was found
+if [ -z "$GUNICORN_PID" ]; then
+  echo "Gunicorn master process not found."
+  exit 1
+fi
+
+# Reload Gunicorn gracefully by sending the SIGHUP signal
+kill -HUP "$GUNICORN_PID"
+
+echo "Gunicorn gracefully reloaded."
